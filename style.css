@@ -196,4 +196,5 @@ footer .socials img {
 .footer__img {
   min-height: 500px;
   object-fit: cover;
+  object-position: bottom;
 }
