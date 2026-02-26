@@ -387,7 +387,7 @@ footer .socials img {
   .hero .socials {
     display: flex;
     margin-top: auto;
-    align-self: self-end;
+    justify-content: end;
   }
 
   /* Main styling (Desktop) */
@@ -408,6 +408,6 @@ footer .socials img {
 
   .footer__contact .socials {
     margin-top: 32px;
-    align-self: self-start;
+    justify-content: start;
   }
 }
