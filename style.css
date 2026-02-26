@@ -6,6 +6,21 @@ body {
   font-family: "Arial", Helvetica, sans-serif;
 }
 
+header,
+main,
+footer {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.header-wrapper {
+  position: relative;
+}
+
+.footer-wrapper {
+  background-color: #0891b2;
+}
+
 h1,
 figcaption {
   font-family: "Libre Caslon Display", serif;
@@ -26,22 +41,22 @@ p {
 
 /* Header styling */
 
-.hero {
-  padding: 16px;
-  position: relative;
-}
-
-.hero::after {
+.header-wrapper::after {
   content: "";
   position: absolute;
-  background: #0891b2;
+  background-color: #0891b2;
   transform: skewY(-30deg);
   transform-origin: top left;
-  width: 768px;
+  width: 100%;
   top: 0; /* snaps to top of parent */
   left: 0; /* snaps to left of parent */
   bottom: 55%; /* height of element relative to parent */
   z-index: -1;
+}
+
+.hero {
+  padding: 16px;
+  position: relative;
 }
 
 .hero__img {
@@ -72,6 +87,7 @@ p {
 }
 
 .hero__description h1 {
+  margin-top: 16px;
   text-align: center;
 }
 
@@ -81,6 +97,7 @@ p {
 }
 
 .hero .socials {
+  margin-top: 16px;
   justify-content: center;
   gap: 1rem;
 }
@@ -93,10 +110,10 @@ p {
 
 main {
   padding: 16px;
-  margin: 4rem 0 8rem 0;
 }
 
 main h1 {
+  margin-top: 4rem;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -105,6 +122,7 @@ main h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 64px;
+  margin-bottom: 8rem;
 }
 
 .works__card {
@@ -212,11 +230,10 @@ footer .socials img {
 
 /* Tablet */
 @media (min-width: 768px) {
-  /* Header styling */
+  /* Header styling (Tablet) */
 
-  .hero::after {
+  .header-wrapper::after {
     transform: skewY(-10deg);
-    width: 1024px;
     bottom: 35%; /* height of element relative to parent */
   }
 
@@ -255,14 +272,14 @@ footer .socials img {
     display: none;
   }
 
-  /* Main styling */
+  /* Main styling (Tablet) */
 
   main {
-    margin-top: 32px;
     padding: 16px 64px;
   }
 
   main h1 {
+    margin-top: 32px;
     text-align: left;
   }
 
@@ -276,7 +293,6 @@ footer .socials img {
   .works__card {
     flex: 1 0 calc(50% - 16px);
     min-width: auto;
-    /* max-width: 50%; */
   }
 
   .card__title {
@@ -284,6 +300,8 @@ footer .socials img {
     margin-right: 16px;
     justify-content: space-between;
   }
+
+  /* Footer styling (Tablet) */
 
   footer {
     display: flex;
@@ -316,4 +334,80 @@ footer .socials img {
 
 /* Desktop */
 @media (min-width: 1024px) {
+  /* Header styling (Desktop) */
+
+  .header-wrapper::after {
+    transform: skewY(-10deg);
+    bottom: 35%; /* height of element relative to parent */
+  }
+
+  .hero {
+    display: flex;
+    padding: 64px;
+    padding-left: 128px;
+  }
+
+  .hero > * {
+    flex: 1;
+  }
+
+  .hero__img {
+    max-width: 40%;
+    margin-right: 0;
+    transform: scale(1.2);
+    transform-origin: right;
+    aspect-ratio: 1 / 1;
+  }
+
+  .hero__img img {
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__img figcaption {
+    left: 20px;
+    right: auto;
+    top: auto;
+    bottom: 10px;
+    white-space: wrap;
+  }
+
+  .hero__description {
+    padding: 16px;
+    padding-right: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__description h1 {
+    text-align: left;
+  }
+
+  .hero .socials {
+    display: flex;
+    margin-top: auto;
+    align-self: self-end;
+  }
+
+  /* Main styling (Desktop) */
+
+  .works__card {
+    flex: 1 0 calc(33.3% - 32px);
+    min-width: auto;
+  }
+
+  /* Footer styling (Desktop) */
+  footer {
+    padding: 64px;
+  }
+
+  .footer__contact {
+    max-width: 40%;
+  }
+
+  .footer__contact .socials {
+    margin-top: 32px;
+    align-self: self-start;
+  }
 }
